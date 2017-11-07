@@ -1,0 +1,29 @@
+
+public class SudokuTester {
+
+	public static void main(String[] args) {
+//		SudokuSolver solver = new SudokuSolver();
+//		printNodeArray(solver.solve("test1.txt"));
+//		printNodeArray(solver.solve("test2.txt"));
+//		printNodeArray(solver.solve("test3.txt"));
+//		printNodeArray(solver.solve("test4.txt"));
+//		printNodeArray(solver.solve("test5.txt"));
+		
+		for(int i=1; i<=5; i++) {
+			printNodeArray(solver.solve("test" + i + ".txt"));
+		}
+
+	}
+	
+	
+	static void printNodeArray(Node[][] a) {
+		for(int i = 0; i<a.length; i++) {
+			for(int j = 0; j<a[i].length; j++) {
+				System.out.print(a[i][j].value + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+}

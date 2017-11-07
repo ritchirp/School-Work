@@ -1,0 +1,43 @@
+/**
+ * 
+ */
+package lab02;
+
+import java.util.IllegalFormatConversionException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+/**
+ * @author Robbie Ritchie
+ *
+ */
+public class Lab2FloatingPoint {
+
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		int chancesLeft = 2;
+		float sum = 0;
+		
+		while(chancesLeft>0)
+		{
+			try
+			{
+				System.out.print("Enter a float value.");
+				float num = Float.parseFloat(in.next());
+				sum+=num;
+				chancesLeft = 2;
+			}
+			catch(NumberFormatException exception)
+			{
+				System.out.println("Illegal entry. Floats only.");
+				chancesLeft-=1;
+			}
+		}
+		
+		if(sum!=0) System.out.printf("Sum: %f", sum);
+
+	}
+
+}

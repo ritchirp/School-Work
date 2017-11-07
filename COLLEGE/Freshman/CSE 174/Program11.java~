@@ -1,0 +1,40 @@
+public class Program11{
+   public static void main(String[] args){
+      
+   }
+   
+   // Swaps the position of two characters in a string given their positions
+   public static String swap(String str, int a, int b){
+      int length = str.length();
+      String swap = "";
+      for(int i = 0; i<length; i++){
+         if(i==a)
+            swap+=str.charAt(b);
+         else if(i==b)
+            swap+=str.charAt(a);
+         else
+            swap+=str.charAt(i);
+      }
+      return swap;
+   }
+   
+   // Randomly swaps the position of two characters in a string
+   public static String randomSwap(String str){
+      int a = (int)(str.length()*Math.random());
+      int b = (int)(str.length()*Math.random());
+      
+      return swap(str,a,b);
+   }
+   
+   public static int experiment(String str){
+      int count = 0;
+      String original = str;
+      
+      do{
+         str = randomSwap(str);
+         count++;
+      }while(!str.equals(original));
+      
+      return count;
+   }
+}

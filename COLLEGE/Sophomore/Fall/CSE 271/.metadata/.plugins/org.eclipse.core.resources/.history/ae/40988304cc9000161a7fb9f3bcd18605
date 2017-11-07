@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package project1;
+
+import java.io.File;
+
+/**
+ * @author Robbie Ritchie
+ *
+ */
+public class Tester {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		File file = new File("test");
+
+	}
+
+}

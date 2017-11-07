@@ -1,0 +1,41 @@
+/**
+ * 
+ */
+package project1;
+
+import java.util.GregorianCalendar;
+
+/**
+ * @author Robbie
+ *
+ */
+public class Daily extends Appointment {
+	
+
+	public Daily(int year, int month, int day, String desc){
+		super();
+		this.setDate(new GregorianCalendar(year, month, day));
+		this.setDescription(desc);
+	}
+	
+	/*
+	 * @param year The year the date occurs on
+	 * @param month The year the month occurs on. Months are represented by 0-11
+	 * @param day The day of the Month
+	 */
+	@Override
+	public boolean occursOn(int year, int month, int day) {
+		GregorianCalendar when = new GregorianCalendar(year, month, day);
+		return (this.getDate().after(when) || this.getDate().equals(when));
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see project1.Appointment#getType()
+	 */
+	@Override
+	public AppointmentType getType(){
+		return AppointmentType.DAILY;
+	}
+
+}

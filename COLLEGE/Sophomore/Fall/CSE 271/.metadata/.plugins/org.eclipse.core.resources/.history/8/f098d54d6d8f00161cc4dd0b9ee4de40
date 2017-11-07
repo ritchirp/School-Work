@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package project1;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+/**
+ * @author Robbie
+ *
+ */
+public class Monthly extends Appointment {
+	
+	public Monthly(int day, String desc){
+		super();
+		GregorianCalendar date = new GregorianCalendar();
+		date.set(Calendar.DAY_OF_MONTH, day);
+		this.setDescription(desc);
+	}
+	
+	@Override
+	public boolean occursOn(int year, int month, int day) {
+		GregorianCalendar when = new GregorianCalendar(year, month, day)
+		return (this.getDate().after(when) || this.getDate().equals(when))
+				&& this.getDate().get(Calendar.DAY_OF_MONTH)==day;
+	}
+
+}

@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{-1}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Problem 57-1}
+\date{\today}
+
+\maketitle
+
+If S is the stretching transformation on $\mathbb{R}^{2}$, defined by \begin{center}
+$S(x,y)=(7x,7y)$, 
+\end{center} and T is the transformation on $\mathbb{R}^2$ defined by \begin{center} $T(x,y)=(2x+3y,7x-5y)$,\end{center} do S and T commute?
+\begin{proof} 
+Let $(x,y)\in\mathbb{R}^2$
+\begin{align*}
+TS(x,y)&=T(7x,7y)\\
+&=(14x+21y,49x-35y)\\
+&=S(2x+3y,7x-5y)\\
+&=ST(x,y)
+\end{align*}
+
+\end{proof}
+
+\end{document} 

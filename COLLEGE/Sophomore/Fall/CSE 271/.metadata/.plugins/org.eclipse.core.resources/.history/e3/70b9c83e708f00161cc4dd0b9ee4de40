@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package project1;
+
+/**
+ * @author Robbie Ritchie
+ *
+ */
+public enum AppointmentType {
+	DAILY, MONTHLY, ONETIME
+}

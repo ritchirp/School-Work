@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{-1}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Problem 14}
+\date{\today}
+
+\maketitle
+
+
+Is the set of non-negative integers modulo 6 a group with respect to multiplication modulo 6?
+
+\begin{proof}
+To be a group, the operation must have closure in the set. 
+$(2\times 3)mod6=0$ since zero is not in the original set, it is not a group.
+
+
+\end{proof}
+
+\end{document} 

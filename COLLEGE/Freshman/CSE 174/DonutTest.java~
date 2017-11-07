@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class DonutTest{
+   public static void main(String[] args){
+      int number, boxes;
+      Scanner keyboard = new Scanner(System.in);
+      
+      number = keyboard.nextInt();
+      boxes = (number - 1)/12 + 1;
+      
+      System.out.println(boxes);
+   }
+}

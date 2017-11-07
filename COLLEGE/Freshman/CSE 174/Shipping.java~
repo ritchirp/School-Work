@@ -1,0 +1,47 @@
+// Robert Ritchie
+// CSE 174
+// Determines the package type and options for shipping a package based on its volume and calculates
+// the cost of shipping.
+
+import java.util.Scanner;
+
+public Class Shipping{
+   public static void main(String[] args){
+      
+      // Gets package volume
+      Scanner keyboard = new Scanner(System.in());
+      System.out.print("Enter volume in cubic inches: ");
+      double volume = keyboard.nextDouble();
+      
+      // Determines package volume class
+      String size;
+      if(volume>=800)
+         size = "Large";
+      else if(volume>=400)
+         size = "Medium";
+      else
+         size = "Small";
+      
+      System.out.println(size + "package");
+      
+      // Asks for first class if applicable
+      String rate;
+      if(size.equals("Small")){
+         System.out.print("Do you want to ship first class?");
+         String answer = keyboard.next();
+         if(answer.equals("yes"))
+            rate = "First class";
+         else
+            rate = "Economy";
+      }
+      
+      // Determines rates for medium and large packages
+      if(size.equals("Medium"))
+         rate = "First class";
+      if(size.equals("Large"))
+         rate = "Large package";
+      
+      System.out.println(rate + " rate");
+         
+   }
+}

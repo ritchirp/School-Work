@@ -1,0 +1,95 @@
+﻿  HW1.cpp
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(55): error C3867: 'glm::tvec2<float,0>::length': non-standard syntax; use '&' to create a pointer to member
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(55): error C2296: '*': illegal, left operand has type 'glm::tvec2<float,0>::length_type (__cdecl glm::tvec2<float,0>::* )(void) const'
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(55): error C2297: '*': illegal, right operand has type 'glm::tvec2<float,0>::length_type (__cdecl glm::tvec2<float,0>::* )(void) const'
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(65): error C3867: 'glm::tvec3<float,0>::length': non-standard syntax; use '&' to create a pointer to member
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(65): error C2296: '*': illegal, left operand has type 'glm::tvec3<float,0>::length_type (__cdecl glm::tvec3<float,0>::* )(void) const'
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(65): error C2297: '*': illegal, right operand has type 'glm::tvec3<float,0>::length_type (__cdecl glm::tvec3<float,0>::* )(void) const'
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(139): error C3867: 'std::vector<float,std::allocator<_Ty>>::size': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=float
+          ]
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(139): error C2446: '==': no conversion from 'int' to 'unsigned __int64 (__cdecl std::vector<float,std::allocator<_Ty>>::* )(void) noexcept const'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(139): note: There are no conversions from integral values to pointer-to-member values
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(140): error C3867: 'std::vector<float,std::allocator<_Ty>>::pop_back': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=float
+          ]
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(140): error C2440: '=': cannot convert from 'void (__cdecl std::vector<float,std::allocator<_Ty>>::* )(void)' to 'float'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(140): note: There is no context in which this conversion is possible
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(141): error C3867: 'std::vector<float,std::allocator<_Ty>>::pop_back': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=float
+          ]
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(141): error C2440: '=': cannot convert from 'void (__cdecl std::vector<float,std::allocator<_Ty>>::* )(void)' to 'float'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(141): note: There is no context in which this conversion is possible
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(144): error C3867: 'std::vector<float,std::allocator<_Ty>>::size': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=float
+          ]
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(144): error C2446: '==': no conversion from 'int' to 'unsigned __int64 (__cdecl std::vector<float,std::allocator<_Ty>>::* )(void) noexcept const'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(144): note: There are no conversions from integral values to pointer-to-member values
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(145): error C3867: 'std::vector<float,std::allocator<_Ty>>::pop_back': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=float
+          ]
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(145): error C2440: '=': cannot convert from 'void (__cdecl std::vector<float,std::allocator<_Ty>>::* )(void)' to 'float'
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(145): note: There is no context in which this conversion is possible
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(173): error C3867: 'glm::tvec3<float,0>::length': non-standard syntax; use '&' to create a pointer to member
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(173): error C2440: 'return': cannot convert from 'glm::tvec3<float,0>::length_type (__cdecl glm::tvec3<float,0>::* )(void) const' to 'float'
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(173): note: There is no context in which this conversion is possible
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(189): error C3867: 'glm::tvec3<float,0>::length': non-standard syntax; use '&' to create a pointer to member
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(200): error C3867: 'glm::tvec3<float,0>::length': non-standard syntax; use '&' to create a pointer to member
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(200): error C2446: '==': no conversion from 'int' to 'glm::tvec3<float,0>::length_type (__cdecl glm::tvec3<float,0>::* )(void) const'
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(200): note: There are no conversions from integral values to pointer-to-member values
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(209): error C2276: '!': illegal operation on bound member function expression
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(210): error C3867: 'std::vector<float,std::allocator<_Ty>>::pop_back': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=float
+          ]
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(211): error C3867: 'std::vector<float,std::allocator<_Ty>>::pop_back': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=float
+          ]
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(224): error C2601: 'darken': local function definitions are illegal
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(207): note: this line contains a '{' which has not yet been matched
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(231): error C2267: 'RenderSceneCB': static functions with block scope are illegal
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(231): error C2601: 'RenderSceneCB': local function definitions are illegal
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(207): note: this line contains a '{' which has not yet been matched
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(248): error C2267: 'ResizeCB': static functions with block scope are illegal
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(248): error C2601: 'ResizeCB': local function definitions are illegal
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(207): note: this line contains a '{' which has not yet been matched
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(256): error C2601: 'main': local function definitions are illegal
+  c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(207): note: this line contains a '{' which has not yet been matched
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(207): fatal error C1075: the left brace '{' was unmatched at the end of the file
+  FrameBuffer.cpp
+  BasicIncludesAndDefines.cpp
+  Generating Code...

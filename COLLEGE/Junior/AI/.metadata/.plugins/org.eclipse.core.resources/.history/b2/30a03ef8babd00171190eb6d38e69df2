@@ -1,0 +1,19 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class Node {
+	List<Integer> domain; 
+	int value;
+	List<Node> children;
+	int row, col;
+	
+	public Node(){
+		super();
+	}
+	
+	public Node(List dom, int val){
+		domain = dom;
+		value = val;
+	}
+	
+}

@@ -1,0 +1,18 @@
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+public class Node {
+	List<Integer> domain; 
+	int value;
+	Set<Node> children;
+	int row, col;
+	
+	public Node(){
+		super();
+		this.children = new HashSet<Node>();
+	}
+	
+	
+}

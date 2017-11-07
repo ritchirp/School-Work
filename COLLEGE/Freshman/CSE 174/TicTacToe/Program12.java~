@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Program12{
+   public static void main(String[] args){
+      TicTacToe board = new TicTacToe();
+      
+      do{
+         System.out.print(board);
+         userMove(board);
+         if(board.getStatus() == TicTacToe.IN_PROGRESS)
+            computerMove(board);
+      } while(board.getStatus() == TicTacToe.IN_PROGRESS);
+   }
+   public static void userMove(TicTacToe board){
+      Scanner in = new Scanner(System.in);
+      
+      System.out.print("Enter your move: ");
+      int row = in.nextInt();
+      int col = in.nextInt();
+      
+      while(!board.isEmpty(row, col)){
+         System.out.print("This cell is occupied!");
+         System.out.print("Enter your move: ");
+         row = in.nextInt();
+         col = in.nextInt();
+      }
+      
+      while((row<0 || row>2) || (col<0 || col>2)){
+         System.out.print("This is an illegal move!");
+         System.out.print("Enter your move: ");
+         row = in.nextInt();
+         col = in.nextInt();
+      }
+      
+      board.makeMove(Cell.X, row, col);
+   }
+   public static void computerMove(TicTacToe board){
+      int num1, num2;
+      
+      do{
+         num1 = (int)(3*Math.random());
+         num2 = (int)(3*Math.random());
+      } while (!board.isEmpty(num1,num2));
+      
+      board.makeMove(Cell.O, num1, num2);
+   }
+   
+}

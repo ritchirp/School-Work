@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{-1}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Problem 31}
+\date{\today}
+
+\maketitle
+
+\begin{enumerate}
+
+\item If a vector $x_{0}$ is a linear combination of $\{x_{1},...,x_{n}\}$, does it follow that the set $\{x_{0},x_{1},...,x_{n}\}$ is dependant?
+\item If, conversely, a finite set $\{x_{0},x_{1},...,x_{n}\}$ of vectors is dependant, does it follow that at least one of them is a linear combination of the others?
+
+\end{enumerate}
+\begin{proof} 
+\begin{enumerate}
+\item Suppose $x_{0}$ is a linear combination of $\{x_{1},...,x_{n}\}$.
+Let $\alpha_{1},\alpha_{2},...,\alpha_{n}$ be scalars. \\
+$x_{0}=\alpha_{1}x_{1}+\alpha_{2}x_{2}...+\alpha_{n}x_{n}$ $\rightarrow$
+$(\alpha_{1} x_{1} +\alpha_{2} x_{2} ...+\alpha_{n} x_{n} ) + (-1)x_{0}=0$ so $\{x_{0},x_{1},...,x_{n}\}$ is dependant.
+\item Suppose $\{x_{0},x_{1},...,x_{n}\}$ is dependant. Let $\alpha_{0},\alpha_{1},...,\alpha_{n}$ be scalars where $\alpha_{i}\neq0$. \\
+$x_{i}=(\dfrac{-1}{\alpha_{i}})(\alpha_{0}x_{0}+\alpha_{1}x_{1}+...+\alpha_{i-1}x_{i-1}+\alpha_{i+1}x_{i+1}+...+\alpha_{n}x_{n}$)
+\end{enumerate}
+
+
+\end{proof}
+
+\end{document} 

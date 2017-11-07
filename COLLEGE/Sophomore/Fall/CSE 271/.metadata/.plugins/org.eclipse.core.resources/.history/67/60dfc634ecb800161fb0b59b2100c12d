@@ -1,0 +1,21 @@
+package edu.miamioh.ritchirp;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class QueensFrame extends JFrame {
+	private JPanel boardPanel;
+	
+	public QueensFrame(){
+		super();
+		boardPanel = new BoardPanel();
+		this.add(boardPanel);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setSize(200, 200);
+	}
+	
+	public static void main(String[] args){
+		QueensFrame frame = new QueensFrame();
+	}
+}

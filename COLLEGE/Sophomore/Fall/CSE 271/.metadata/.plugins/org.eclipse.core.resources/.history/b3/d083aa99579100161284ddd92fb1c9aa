@@ -1,0 +1,85 @@
+package project1;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class AppointmentBook {
+	ArrayList<Appointment> appointments;
+	
+	public AppointmentBook(){
+	}
+	
+	/*
+	 * @param type The type of the appointment, can be DAILY, MONTHLY, or ONETIME
+	 * @param desc The description of the appointment
+	 * @param date The initial date associated with the appointment
+	 * Adds a date to the AppointmentBook instance
+	 */
+	public void add(AppointmentType type, String desc, GregorianCalendar date){
+		int year = date.get(Calendar.YEAR);
+		int month = date.get(Calendar.MONTH);
+		int day = date.get(Calendar.DAY_OF_MONTH);
+		
+		if(type==AppointmentType.DAILY)	
+			this.appointments.add(new Daily(year, month, day, desc));
+		if(type==AppointmentType.MONTHLY)
+			this.appointments.add(new Monthly(year, month, day, desc));
+		if(type==AppointmentType.ONETIME){
+			this.appointments.add(new Onetime(year, month, day, desc));
+		}
+			
+	}
+	
+	/*
+	 * @param File the file to which the appointment will be saved
+	 * @param Appointment the appointment to be saved
+	 * @throws FileNotFoundException
+	 * Saves an appointment to a file so it can later be loaded
+	 */
+	public static void save(File file, Appointment appointment) throws FileNotFoundException{
+		PrintWriter PW = new PrintWriter(file);
+		if(appointment.getType()==AppointmentType.DAILY)
+			PW.print("DAILY");
+		if(appointment.getType()==AppointmentType.MONTHLY)
+			PW.print("MONTHLY");
+		if(appointment.getType()== AppointmentType.ONETIME)
+			PW.print("ONETIME");
+		PW.printf("%s.%2d/%2d/%4d%n", appointment.getDescription(), appointment.getDate().get(Calendar.DAY_OF_MONTH),
+				appointment.getDate().get(Calendar.MONTH), appointment.getDate().get(Calendar.YEAR));
+		
+		PW.close();
+	}
+	
+	/*
+	 * @param file the file the appointments will be loaded from
+	 * @throws FileNotFoundException
+	 * loads all of the formated appointments in a file to the appointmentbook instance
+	 */
+	public void load(File file) throws FileNotFoundException{
+		Scanner in = new Scanner(file);
+		in.useDelimiter(".");
+		while(in.hasNextLine()){
+			String typeString = in.next();
+			String description = in.next();
+			in.useDelimiter("/");
+			int day = Integer.parseInt(in.next());
+			int month = Integer.parseInt(in.next());
+			int year = Integer.parseInt(in.next());
+			GregorianCalendar date = new GregorianCalendar(year, month, day);
+			
+			if(typeString.equals("DAILY"))
+				add(AppointmentType.DAILY, description, date);
+			if(typeString.equals("MONTHLY"))
+				add(AppointmentType.MONTHLY, description, date);
+			if(typeString.equals("ONETIME"))
+				add(AppointmentType.ONETIME, description, date);
+		}
+		in.close();
+	}
+	
+}

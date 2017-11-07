@@ -1,0 +1,5 @@
+﻿  HW1.cpp
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(32): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\robbie\dropbox\college\junior\graphics\hw1\cse287lab\hw1.cpp(213): warning C4018: '<': signed/unsigned mismatch
+  CSE287Lab.vcxproj -> C:\Users\Robbie\Dropbox\COLLEGE\Junior\Graphics\HW1\Debug\CSE287Lab.exe
+  CSE287Lab.vcxproj -> C:\Users\Robbie\Dropbox\COLLEGE\Junior\Graphics\HW1\Debug\CSE287Lab.pdb (Full PDB)

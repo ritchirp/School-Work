@@ -1,0 +1,96 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class SudokuSolver {
+	
+	Node[][] variables;
+	
+	int assignedCount; // number of variables with assigned values
+	
+	
+	public Node[][] solve(String fileName){
+		parseFile(fileName);
+		// forward check initial assignment
+		// recursive call
+		return variables;
+	}
+	
+	private void parseFile(String fileName){
+		try{
+			variables = new Node[9][9];
+			Scanner in = new Scanner(new File(fileName));
+			int row = 0;
+			// fill in the nodes with info from the initial assignment
+			while(in.hasNextLine() && row < 9){
+				String currentRow = in.nextLine();
+				for(int i=0; i<9; i++){
+					Node toAdd = new Node();
+					toAdd.row = row;
+					toAdd.col = i;
+					if(currentRow.charAt(i)== '-'){
+						// Initialize a domain list and fill it with numbers 1-9
+						LinkedList<Integer> thisDom = new LinkedList<>();
+						for(int j = 1; i <= 9; i++){
+							thisDom.add(new Integer(j));
+						}
+						toAdd.domain = thisDom;
+						toAdd.value = 0; // indicates no assigned value
+						
+						variables[row][i] = toAdd;
+					}
+					else{
+						LinkedList<Integer> thisDom = new LinkedList<Integer>();
+						int val = currentRow.charAt(i) - '0';
+						thisDom.add(new Integer(val));
+						toAdd.domain = thisDom;
+						toAdd.value = val;
+					}
+				}
+				row++;
+			}
+			// Add children
+			for(row = 0; row < variables.length; row++){
+				for(int col = 0; col < variables[row].length; row++){
+					// add row neighbors
+					// add col neighbors
+					// add square neighbors
+				}
+			}
+			
+		}
+		catch(FileNotFoundException e){
+			
+		}
+	}
+	
+	private void addRowChildren(Node n){
+		for(int i=0; i<variables[n.row].length; i++){
+			if(n.col != i)
+				n.children.add(variables[n.row][i]);
+		}
+	}
+	
+	private void addColChildren(Node n){
+		for(int i=0; i<variables.length; i++){
+			if(n.row != i)
+				n.children.add(variables[i][n.col]);
+		}
+	}
+	
+	private void addSquareChildren(Node n){
+		for(int i = 0; i< 3; i++){
+			for(int j = 0; j < 3; j++){
+				int row = (3 * n.row) / 3 + i; // takes advantage of java integer division
+				int col = (3 * n.col) / 3 + j; // to iterate through the square
+				n.children.add(variables[row][col]);
+			}
+		}
+	}
+	
+	private void reduceInitialDomains(){
+		// TODO this
+	}
+	
+}

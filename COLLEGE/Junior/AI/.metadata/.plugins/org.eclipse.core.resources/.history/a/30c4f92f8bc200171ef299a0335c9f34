@@ -1,0 +1,315 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+public class SudokuSolver {
+	
+	Node[][] variables;
+	Set<Node> assigned;
+	int assignedCount; // number of variables with assigned values
+	
+	public SudokuSolver(){
+		assignedCount = 0;
+		assigned = new HashSet<Node>();
+	}
+	
+	public Node[][] solve(String fileName){
+		parseFile(fileName);
+		Node[][] temp = recursiveSolve(variables);
+		clearLocalVariables();
+		return temp;
+	}
+	
+	private void clearLocalVariables() {
+		variables = null;
+		assigned.clear();
+		assignedCount = 0;
+	}
+	
+	private Node[][] recursiveSolve(Node[][] assignments){
+		
+		
+		// if the assignment is complete return it
+		if(assigned.size() == 81)
+			return assignments;
+		
+		
+		Node variable = minimumRemainingValue(assignments); 
+		
+		List<Integer> orderedValues = leastConstrainingValue(variable);
+		for(Integer val : orderedValues){
+			// set value
+			List<Integer> oldDomain = setValue(variable, val);
+			// propagate constraints and store what changed
+			List<Node> changedNodes = updateNeighbors(variable);
+			
+			//Check for domain wipeout
+			boolean wipeout = false;
+			for(Node n : changedNodes) {
+				if(n.domain.size() == 0)
+					wipeout = true;
+			}
+			
+			// For consistent assignments, continue to check if we can solve the puzzle
+			if(!wipeout && isConsistent(variable)) { 
+				Node[][] result = recursiveSolve(assignments);
+				if(result != null) {
+					return result;
+				}
+			}
+			
+			unAssign(variable, oldDomain, changedNodes);
+			
+		}
+		// all assignments failed
+		return null;
+	}
+	
+	/**
+	 * Minimum Remaining Value Heuristic
+	 * @param assignment The current Nodes to choose from
+	 * @return An unassigned Node with the smallest domain
+	 */
+	private Node minimumRemainingValue(Node[][] assignment) {
+		Node minNode = new Node();
+		minNode.value = Integer.MAX_VALUE;
+		
+		// Iterate over the board
+		for(int i=0; i<assignment.length; i++) {
+			for(int j = 0; j<assignment[0].length; j++) {
+				// If the domain is smaller, and is unassigned, store the current Node
+				if(assignment[i][j].domain.size() < minNode.value && !assigned.contains(assignment[i][j])) {
+					minNode = assignment[i][j];
+				}
+			}
+		}
+		return minNode;
+	}
+	
+	// unassigns a node's value and resets its domain
+	private void unAssign(Node n, List<Integer> oldDomain, List<Node> changedNeighbors) {
+		// Add n.value back to the neighbors' domains
+		for(Node neigh : changedNeighbors) {
+			neigh.domain.add(n.value);
+		}
+		// Unassigns n's value and restore its domain
+		assigned.remove(n);
+		n.value = 0;
+		n.domain = oldDomain;
+	}
+	
+	
+	// Checks if a node's assignment is consistent with its neighbors'
+	private boolean isConsistent(Node variable) {
+		for(Node child : variable.children) {
+			if(child.value == variable.value)
+				return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Reduce the domains of neighboring nodes
+	 * @param n The assigned node whose neighbors are to be updated
+	 * @return A list of nodes who were updated by this method
+	 */
+	private List<Node> updateNeighbors(Node n){
+		// list of nodes affected by this method
+		LinkedList<Node> updated = new LinkedList<>(); 
+		
+		for(Node neigh : n.children){
+			if(neigh.domain.remove(new Integer(n.value))){
+				updated.add(neigh);
+			}
+		}
+		
+		
+		return updated;
+	}
+	
+	/**
+	 * @param n The node whose domain is to be searched
+	 * @return A sorted list of n's domain based on the least constraining value
+	 */
+	private List<Integer> leastConstrainingValue(Node n){
+		
+		Set<Node> children = n.children;
+		List<Integer> domain = n.domain;
+		
+		Integer[][] conflictMap = new Integer[domain.size()][]; // stores pairs of the form [value, conflicts]
+		final int VALUE = 0;
+		final int CONFLICTS = 1;
+		
+
+		for(int i=0; i<domain.size(); i++){
+			int count = 0;
+			Integer consideredValue = domain.get(i);
+			// count how many domain reductions the choice causes
+			for(Node child : children){
+				if(child.domain.contains(consideredValue)) // there would be a reduction
+					count++;
+			}
+			Integer[] temp = new Integer[2];
+			temp[VALUE] = consideredValue;
+			temp[CONFLICTS] = new Integer(count);
+			conflictMap[i] = temp;
+		}
+		
+		// sort the array in descending based on # of conflicts
+		for(int i=0; i<conflictMap.length ; i++){
+			// bubble up
+			for(int j=0; j<conflictMap.length - i - 1; i++){
+				// swap
+				if(conflictMap[j][CONFLICTS].compareTo(conflictMap[j+1][CONFLICTS]) > 0){
+					Integer[] temp = conflictMap[j];
+					conflictMap[j] = conflictMap[j+1];
+					conflictMap[j+1] = temp;
+				}
+				else // the rest is sorted
+					break;
+			}
+		}
+		
+		
+		ArrayList<Integer> result = new ArrayList<>();
+		
+		// put the results into a List
+		
+		for(int i=0; i<conflictMap.length; i++){
+			result.add(conflictMap[i][VALUE]);
+		}	
+		
+		return result;
+	}
+	
+	/**
+	 * Sets the value of a node
+	 * @param n the node to be changed
+	 * @param val the value to assign
+	 * @return the old domain of the node
+	 */
+	private List<Integer> setValue(Node n, int val){
+		// save the old domain to be returned
+		List<Integer> out = new LinkedList<Integer>(n.domain);
+		// set the value
+		n.value = val;
+		assigned.add(n);
+		n.domain.clear();
+		n.domain.add(val);
+		
+		return out;
+	}
+	
+	
+	// NOTE: All the code below this point simply sets up the board
+	// it does not particularly pertain to the backtracking algorithm
+	
+	
+	// Parses the file and creates the board (domains, children, etc)
+	private void parseFile(String fileName){
+		try{
+			variables = new Node[9][9];
+			Scanner in = new Scanner(new File(fileName));
+			int row = 0;
+			// fill in the nodes with info from the initial assignment
+			while(in.hasNextLine() && row < 9){
+				String currentRow = in.nextLine();
+				for(int i=0; i<9; i++){
+					Node toAdd = new Node();
+					toAdd.row = row;
+					toAdd.col = i;
+					if(currentRow.charAt(i)== '-'){
+						// Initialize a domain list and fill it with numbers 1-9
+						LinkedList<Integer> thisDom = new LinkedList<>();
+						for(int j = 1; j <= 9; j++){
+							thisDom.add(new Integer(j));
+						}
+						toAdd.domain = thisDom;
+						toAdd.value = 0; // indicates no assigned value
+						
+						variables[row][i] = toAdd;
+					}
+					else{
+						LinkedList<Integer> thisDom = new LinkedList<Integer>();
+						int val = currentRow.charAt(i) - '0';
+						thisDom.add(new Integer(val));
+						toAdd.domain = thisDom;
+						toAdd.value = val;
+						
+						variables[row][i] = toAdd;
+						assigned.add(toAdd);
+					}
+				}
+				row++;
+			}
+			// Add children
+			for(row = 0; row < variables.length; row++){
+				for(int col = 0; col < variables[row].length; col++){
+					addRowChildren(variables[row][col]);
+					addColChildren(variables[row][col]);
+					addSquareChildren(variables[row][col]);
+
+				}
+			}
+			in.close();
+			reduceInitialDomains();
+			
+		}
+		catch(Exception e){
+			System.out.println("There was an error parsing the file");
+		}
+	}
+	
+	private void addRowChildren(Node n){
+		for(int i=0; i<variables[n.row].length; i++){
+			if(n.col != i)
+				n.children.add(variables[n.row][i]);
+		}
+	}
+	
+	private void addColChildren(Node n){
+		for(int i=0; i<variables.length; i++){
+			if(n.row != i)
+				n.children.add(variables[i][n.col]);
+		}
+	}
+	
+	private void addSquareChildren(Node n){
+		int rowStart = n.row / 3;  // takes advantage of java integer division
+		int colStart = n.col / 3;  // to find the coordinates of the square
+		rowStart *= 3;
+		colStart *= 3;
+		
+		for(int i = 0; i< 3; i++){
+			for(int j = 0; j < 3; j++){
+				int row = rowStart + i;
+				int col = colStart + j;
+				if(n.row != row && n.col != col)
+					n.children.add(variables[row][col]);
+			}
+		}
+	}
+	
+	// Reduce the domains of neighbors to the initially assigned squares
+	private void reduceInitialDomains(){
+		Iterator<Node> assignedIterator = assigned.iterator();
+		while(assignedIterator.hasNext()){
+			Node n = assignedIterator.next();
+			Iterator<Node> childIterator = n.children.iterator();
+			while(childIterator.hasNext()){
+				Node child = childIterator.next();
+				child.domain.remove(new Integer(n.value));
+				
+			}
+		}
+	}
+	
+}

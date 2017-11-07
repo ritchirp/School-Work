@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{-1}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Theorem 39}
+\date{\today}
+
+\maketitle
+
+Let T be a linear transformation on a finite vector space V. Then $dim(V)=dim(kerT)+dim(ranT)$.
+\begin{proof} 
+Let $B'=\{k_1,...,k_m\}$ be a basis for kerT. Since $B'$ is independant, we can extend it to a basis for V say $B=\{k_1,...,k_m,u_1,...,u_n\}$. 
+Let $U=\{Tu_1,...,Tu_n\}$
+ Let $w \in ranT$, this implies that $\exists v \in V$ such that $Tv=w \rightarrow \exists \alpha_1,...,\alpha_m,\beta_1,...,\beta_n \in F$ such that
+\begin{align*} 
+v&=\alpha_1k_1+...+\alpha_mk_m+\beta_1u_1+...+\beta_nu_n\\
+Tv&=T(\alpha_1k_1+...+\alpha_mk_m+\beta_1u_1+...+\beta_nu_n) \\
+w&=\alpha_1Tk_1+...+\alpha_mTk_m+\beta_1Tu_1+...+\beta_nTu_n \\
+&=\beta_1Tu_1+...+\beta_nTu_n \\
+ &\rightarrow \bigvee \{Tu_1,...,Tu_n\}=ranT
+\end{align*}
+Let $\gamma_1,...,\gamma_n \in F$. Suppose
+$T\gamma_1u_1+...+T\gamma_nu_n=0$ \\
+$ \rightarrow T(\gamma_1u_1+...+\gamma_nu_n)=0 \\
+\rightarrow \gamma_1u_1+...+\gamma_nu_n \in kerT \\
+ \rightarrow \gamma_1u_1+...+\gamma_nu_n=\beta_1k_1+...+\beta_mk_m$ and since $\{k_1,...,k_m,u_1,...,u_n\}$ is independant, $\gamma_1=...=\gamma_n=\beta_1=...=\beta_n=0$ so $\{Tu_1,...,Tu_n\}$ is independant.
+\end{proof}
+
+\end{document} 

@@ -1,0 +1,101 @@
+// Robert Ritchie
+//
+
+import java.util.Scanner;
+
+public class MathQuiz {
+   public static void main(String args[]){
+      
+      Scanner keyboard = new Scanner(System.in);
+      String difficulty;
+      
+      System.out.println("Welcome to my math quiz!");
+      System.out.println("This quiz will give you four multiplication problems,");
+      System.out.println("followed by four division problems.");
+      System.out.println("An easy quiz will include numbers up to 100.");
+      System.out.println("A hard quiz will include numbers up to 1000.");
+      System.out.println("-----------------------------------------------------");
+      System.out.println("Do you want an easy quiz or a hard quiz?");
+      System.out.print("Enter the word hard or easy: ");
+      difficulty = keyboard.next();
+      
+      int max = 0;
+      if(difficulty.equalsIgnoreCase("easy"))
+         max = 100;
+      if(difficulty.equalsIgnoreCase("hard"))
+         max = 1000;
+      
+      System.out.println("-MULTIPLICATION--------------------------------------");
+      System.out.println("You have chosen " + difficulty.toLowerCase() + ".");
+      
+      int multiplicand1, multiplicand2;
+      int correctAnswer, givenAnswer;
+      int multiplicationScore = 0;
+      int swap;
+      // PUT IN TIMER
+      
+      // generates the numbers for the multiplication problems
+      multiplicand1 = (int)(1 + max*Math.random());
+      multiplicand2 = (int)(1 + (100/multiplicand1)*Math.random());
+      correctAnswer = multiplicand1 * multiplicand2;
+      
+      System.out.print(multiplicand1 + " × " + multiplicand2 + " = :");
+      givenAnswer = keyboard.nextInt();
+      if(givenAnswer==correctAnswer){
+         multiplicationScore++;
+         System.out.println("Correct! " + multiplicationScore + " answers correct so far.");
+      }
+      else{
+         System.out.print("No, " + multiplicand1 + " × " + multiplicand2 + " = " + correctAnswer);
+         System.out.println("." + multiplicationScore + " answers correct so far.");
+      }
+      
+      // repeat question procedure
+      multiplicand1 = (int)(1 + max*Math.random());
+      multiplicand2 = (int)(1 + (100/multiplicand1)*Math.random());
+      correctAnswer = multiplicand1 * multiplicand2;
+      
+      System.out.print(multiplicand1 + " × " + multiplicand2 + " = :");
+      givenAnswer = keyboard.nextInt();
+      if(givenAnswer==correctAnswer){
+         multiplicationScore++;
+         System.out.println("Correct! " + multiplicationScore + " answers correct so far.");
+      }
+      else{
+         System.out.print("No, " + multiplicand1 + " × " + multiplicand2 + " = " + correctAnswer);
+         System.out.println("." + multiplicationScore + " answers correct so far.");
+      }
+      
+      // repeat question procedure
+      multiplicand1 = (int)(1 + max*Math.random());
+      multiplicand2 = (int)(1 + (100/multiplicand1)*Math.random());
+      correctAnswer = multiplicand1 * multiplicand2;
+      
+      System.out.print(multiplicand1 + " × " + multiplicand2 + " = :");
+      givenAnswer = keyboard.nextInt();
+      if(givenAnswer==correctAnswer){
+         multiplicationScore++;
+         System.out.println("Correct! " + multiplicationScore + " answers correct so far.");
+      }
+      else{
+         System.out.print("No, " + multiplicand1 + " × " + multiplicand2 + " = " + correctAnswer);
+         System.out.println("." + multiplicationScore + " answers correct so far.");
+      }
+      
+      // repeat question procedure
+      multiplicand1 = (int)(1 + max*Math.random());
+      multiplicand2 = (int)(1 + (100/multiplicand1)*Math.random());
+      correctAnswer = multiplicand1 * multiplicand2;
+      
+      System.out.print(multiplicand1 + " × " + multiplicand2 + " = :");
+      givenAnswer = keyboard.nextInt();
+      if(givenAnswer==correctAnswer){
+         multiplicationScore++;
+         System.out.println("Correct! " + multiplicationScore + " answers correct so far.");
+      }
+      else{
+         System.out.print("No, " + multiplicand1 + " × " + multiplicand2 + " = " + correctAnswer);
+         System.out.println("." + multiplicationScore + " answers correct so far.");
+      }
+   }
+}

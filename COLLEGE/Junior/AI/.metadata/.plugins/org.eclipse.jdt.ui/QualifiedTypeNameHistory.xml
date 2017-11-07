@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="edu.miami.cse.agents.blackjack.DealerAgent"/>
+<fullyQualifiedTypeName name="edu.miami.cse.agents.blackjack.Deck"/>
+<fullyQualifiedTypeName name="edu.miami.cse.agents.blackjack.Hand"/>
+<fullyQualifiedTypeName name="edu.miami.cse.agents.blackjack.Card"/>
+<fullyQualifiedTypeName name="edu.miami.cse.agents.blackjack.Card.Rank"/>
+<fullyQualifiedTypeName name="edu.miami.cse.agents.blackjack.PlayerAgent"/>
+<fullyQualifiedTypeName name="edu.miami.cse.agents.blackjack.Card.Suit"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="mazesearch.cse.miamioh.edu.Maze"/>
+<fullyQualifiedTypeName name="mazesearch.cse.miamioh.edu.BreadthFirstSearch"/>
+<fullyQualifiedTypeName name="mazesearch.cse.miamioh.edu.Node"/>
+<fullyQualifiedTypeName name="mazesearch.cse.miamioh.edu.BidirectionalSearch"/>
+<fullyQualifiedTypeName name="mazesearch.cse.miamioh.edu.DepthFirstSearch"/>
+<fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.util.PriorityQueue"/>
+<fullyQualifiedTypeName name="mazesearch.cse.miamioh.edu.AStarNode"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="mazesearch.cse.miamioh.edu.AStarSearch"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="SudokuSolver"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="Node"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+</qualifiedTypeNameHistroy>

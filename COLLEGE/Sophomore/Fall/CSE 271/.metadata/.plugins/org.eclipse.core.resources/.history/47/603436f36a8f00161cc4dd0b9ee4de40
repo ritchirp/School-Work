@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package project1;
+
+import java.util.GregorianCalendar;
+
+/**
+ * @author Robbie Ritchie
+ *
+ */
+public class Onetime extends Appointment {
+
+	public Onetime(int year, int month, int day, String desc){
+		super();
+		this.setDate(new GregorianCalendar(year, month, day));
+		this.setDescription(desc);	
+	}
+	
+	public Onetime() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	@Override
+	public boolean occursOn(int year, int month, int day) {
+		return day==;
+	}
+
+}

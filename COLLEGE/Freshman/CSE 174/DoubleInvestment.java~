@@ -1,0 +1,14 @@
+public class DoubleInvestment{
+   public static void main(String[] args){
+      int year = 0;
+      double balance = 50;
+      while(balance<500){
+         year++;
+         double interest = balance*.05;
+         balanc+=interest;
+      }
+      System.out.print(year);
+      
+      
+   }
+}

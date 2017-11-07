@@ -1,0 +1,32 @@
+package edu.miamioh.ritchirp;
+
+import javax.swing.JButton;
+
+public class Tile extends JButton {
+	private int row;
+	private int column;
+	private boolean hasQueen;
+	
+	public Tile(int row, int column){
+		super();
+		this.row = row;
+		this.column = column;
+		hasQueen = false;
+	}
+	
+	public boolean hasQueen(){
+		return hasQueen;
+	}
+	
+	public void setQueen(boolean queen){
+		hasQueen = queen;
+	}
+	
+	public int getRow(){
+		return this.row;
+	}
+	
+	public void getColumn(){
+		return this.column;
+	}
+}

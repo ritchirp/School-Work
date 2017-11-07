@@ -1,0 +1,13 @@
+package edu.miamioh.ritchirp;
+
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
+
+import javax.swing.JPanel;
+
+public class BoardPanel extends JPanel {
+	public BoardPanel(){
+		super();
+		this.setLayout(new GridLayout(8,8));
+	}
+}

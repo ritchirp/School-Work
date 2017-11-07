@@ -1,0 +1,102 @@
+package edu.miamioh.ritchirp;
+
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+
+public class BoardPanel extends JPanel {
+	private int queenCount;
+	private Tile[] tiles;
+	
+	public BoardPanel(){
+		super();
+		this.setLayout(new GridLayout(8,8));
+		tiles = new Tile[64];
+		createButtons();
+		queenCount = 0;
+	}
+	
+	private void createButtons(){
+		ActionListener listener = new AddQueenListener();
+		for(int i=1; i<=8; i++){
+			for(int j=1; j<=8; j++){
+				
+				Tile tile = new Tile(i,j);
+				int position = (i-1)*8 + j;
+				tile.addActionListener(listener);
+				this.add(tile);
+				tiles[position-1] = tile;
+				
+				if((i-j)%2==0){
+					tile.setBackground(Color.BLACK);
+					tile.setForeground(Color.WHITE);
+				}
+			}
+		}
+	}
+	
+	public boolean isAttacked(Tile q){
+		int row1 = q.getRow();
+		int col1 = q.getColumn();
+		for(int i=0; i<tiles.length; i++){
+			int row2 = tiles[i].getRow();
+			int col2 = tiles[i].getColumn();
+			if(tiles[i].hasQueen() && !q.equals(tiles[i]) && 
+					(row1==row2 || col1==col2 || diagonalAttack(row1,col1,row2,col2))){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean isPartialSolution(){
+		for(int i=0; i<tiles.length; i++){
+			if(tiles[i].hasQueen() && isAttacked(tiles[i]))
+				return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * solution taken from lecture notes
+	 * @param row1
+	 * @param col1
+	 * @param row2
+	 * @param col2
+	 * @return
+	 */
+	public boolean diagonalAttack(int row1, int col1, int row2, int col2){
+		double slope = (row2-row1)/(col2-col1);
+		if(slope==1 || slope==-1)
+			return true;
+		return false;
+	}
+	
+	
+	private class AddQueenListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Tile tile = (Tile) e.getSource();
+			if(tile.hasQueen()){
+				tile.setText("");
+				tile.setQueen(false);
+				queenCount--;
+			}
+			else{
+				if(queenCount<8){
+					tile.setText("Q");
+					tile.setQueen(true);
+					queenCount++;
+				}
+				else return;
+			}
+		}
+		
+	}
+}

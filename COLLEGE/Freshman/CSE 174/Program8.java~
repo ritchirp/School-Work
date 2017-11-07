@@ -1,0 +1,107 @@
+import java.util.Scanner;
+public class Program8{
+   public static void main(String[] args){
+      Scanner keyboard = new Scanner(System.in);
+      
+      System.out.print("Enter a date in mm/dd/yyyy format:");
+      String date = keyboard.next();
+      int day = getDay(date);
+      int month = getMonth(date);
+      int year = getYear(date);
+      
+      if (!isValidDate(month, day, year))
+         System.out.print("This is not a valid date.");
+      else{
+         System.out.println("You entered " + dayOfWeek(month, day, year) + " ," + getMonthName(month)
+                               + " " + day + ", " + year + ".");
+         System.out.println("This month has " + daysInMonth(month, isLeapYear(year)) + " days.");
+         
+         if (isLeapYear(year))
+            System.out.println(year + " is a leap year.");
+         else
+            System.out.println(year + " is not a leap year.");
+         
+         System.out.println("This is day number " + elapsedDays(month, day, year) + " of the year.");
+      }
+   }
+   public static int getMonth(String date){
+      return Integer.parseInt(date.substring(0,2));
+   }
+   
+   public static int getDay(String date){
+      return Integer.parseInt(date.substring(3,5));
+   }
+   
+   public static int getYear(String date){
+      return Integer.parseInt(date.substring(6,10));
+   }
+   
+   public static boolean isLeapYear(int year){
+      return (year%400==0 || (year%100!=0 && year%4==0));
+   }
+   
+   public static int daysInMonth(int month, boolean leapYear){
+      if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12)
+         return 31;
+      else if(month==4 || month==6 || month==9 || month==11)
+         return 30;
+      else if(month==2 && leapYear)
+         return 29;
+      else if(month==2 && !leapYear)
+         return 28;
+      else
+         return -1;
+   }
+   
+   public static boolean isValidDate(int month, int day, int year){
+      return (month>=1 && month<=12 && day>=1 && day<=daysInMonth(day, isLeapYear(year)) && year>=0);
+   }
+   
+   public static String dayOfWeek(int month, int day, int year){
+      int firstDay = (1 + 5*((year-1)%4) + 4*((year-1)%100) + 6*((year-1)%400))%7;
+      int dayNumber = firstDay + elapsedDays(month, day, year)%7;
+      
+      String dayOfWeek = "";
+      switch (dayNumber){
+         case 0: dayOfWeek = "Sunday"; break;
+         case 1: dayOfWeek = "Monday"; break;
+         case 2: dayOfWeek = "Tuesday"; break;
+         case 3: dayOfWeek = "Wednesday"; break;
+         case 4: dayOfWeek = "Thurday"; break;
+         case 5: dayOfWeek = "Friday"; break;
+         case 6: dayOfWeek = "Saturday"; break;
+      }
+      return dayOfWeek;
+   }
+   
+   public static String getMonthName(int month){
+      String monthName;
+      switch (month){
+         case 1: monthName = "January"; break;
+         case 2: monthName = "Febuary"; break;
+         case 4: monthName = "April"; break;
+         case 5: monthName = "May"; break;
+         case 6: monthName = "June"; break;
+         case 7: monthName = "July"; break;
+         case 8: monthName = "August"; break;
+         case 9: monthName = "September"; break;
+         case 10: monthName = "October"; break;
+         case 11: monthName = "November"; break;
+         case 12: monthName = "December"; break;
+         default: monthName = "ERROR"; break;
+      }
+      return monthName;
+   }
+   
+   public static int elapsedDays(int month, int day, int year){
+      if (!isValidDate(month, day, year))
+         return -1;
+      int x = 1;
+      int elapsedDays = 0;
+      while (x<1){
+         elapsedDays += daysInMonth(x,isLeapYear(year));
+      }
+      elapsedDays +=day;
+      return elapsedDays;
+   }
+}

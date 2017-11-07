@@ -1,0 +1,47 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class SudokuSolver {
+	
+	Node[][] variables;
+	
+	int assignedCount; // number of variables with assigned values
+	
+	
+	private Node[][] solve(String fileName){
+		parseFile(fileName);
+		// forward check initial assignment
+		// recursive call
+		return null;
+	}
+	
+	private void parseFile(String fileName){
+		try{
+			variables = new Node[9][9];
+			Scanner in = new Scanner(new File(fileName));
+			int row = 0;
+			while(in.hasNextLine()){
+				String currentRow = in.nextLine();
+				for(int i=0; i<9; i++){
+					if(currentRow.charAt(i)== '-')
+						variables[row][i] = new Node();
+					else{
+						LinkedList<Node> thisDomain = new LinkedList();
+						variables[row][i] = new Node(thisDomain, currentRow.charAt(i) - '0');
+					}
+				}
+				row++;
+			}
+		}
+		catch(FileNotFoundException e){
+			
+		}
+	}
+	
+	private void reduceInitialDomains(){
+		
+	}
+	
+}

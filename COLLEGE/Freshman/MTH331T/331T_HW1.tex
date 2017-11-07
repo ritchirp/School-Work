@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{-1}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Homework 1}
+\date{\today}
+
+\maketitle
+
+\begin{statement}~
+Let $a$ and $b$ be integers.  If $a$ is odd and $b$ is odd, then $ab$ is odd.
+\end{statement}
+
+\begin{proof}
+We say that $a$ and $b$ are odd if there exist integers $k$ and $h$ that satisfy $a=2k+1$ and $b=2h+1$
+Therefore $ab=(2k+1)(2h+1)=4kh+2k+2h+1=2(2kh+k+h)+1$
+and $2kh+k+h$ is an integer
+
+\end{proof}
+
+\end{document} 

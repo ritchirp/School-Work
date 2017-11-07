@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package project1;
+
+import java.io.File;
+import java.util.GregorianCalendar;
+
+/**
+ * @author Robbie Ritchie
+ *
+ */
+public class Tester {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		File file = new File("test.txt");
+		
+		GregorianCalendar date = new GregorianCalendar(1997, 7, 21);
+		Onetime appointment = new Onetime(1997, 02, 21, "Fun Day");
+		
+		AppointmentBook.save(file, appointment);
+
+	}
+
+}

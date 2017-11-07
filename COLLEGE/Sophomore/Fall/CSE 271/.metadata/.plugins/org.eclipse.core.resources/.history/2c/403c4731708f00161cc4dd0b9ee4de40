@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package project1;
+
+/**
+ * @author Robbie
+ *
+ */
+public enum AppointmentType {
+
+}

@@ -1,0 +1,41 @@
+package edu.miamioh.ritchirp;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class QueensFrame extends JFrame {
+	private JPanel boardPanel;
+	private JButton solutionButton;
+	private JButton tipButton;
+	
+	public QueensFrame(){
+		super();
+		boardPanel = new BoardPanel();
+		this.add(boardPanel);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setSize(400, 400);
+	}
+	
+	private class ButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			if(arg0.getSource().equals(solutionButton)){
+				
+			}
+			else if(arg0.getSource().equals(tipButton)){
+				
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args){
+		QueensFrame frame = new QueensFrame();
+	}
+}

@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{-1}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Statement 1} 
+\date{\today}
+
+\maketitle
+
+\begin{statement}~
+Let $n$ be an integer. If $n\geq3$ then $n^3>(n+1)^2$
+\end{statement}
+
+\begin{proof}
+For $n\geq3$, $n-2\geq1$ and $n+1\geq4$\\
+so $n(n-2)(n+1)\geq3\cdot4\cdot1=12>1$\\
+$n(n-2)(n+1)>1\\ n^3-n^2-2n>1\\ n^3>n^2+2n+1\\ n^3>(n+1)^2$
+
+
+\end{proof}
+
+\end{document} 

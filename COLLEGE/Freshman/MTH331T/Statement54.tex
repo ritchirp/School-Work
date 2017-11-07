@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{53}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Statement 54}
+\date{\today}
+
+\maketitle
+
+\begin{statement}
+Let $x$ be a non-zero real number. If $x+1/x$ is an integer, then for all integers $n$ with $n\geq0$, $x^n+1/x^n$ is an integer. 
+\end{statement}
+
+\begin{proof}
+\begin{enumerate}
+\item $n=0$, $x^0+1/x^0=2$ is an integer
+\item $n=1$, $x^1+1/x^1=x+1/x$
+\item Let $x+1/x$ be an integer. For all $n\geq2$, if, for all $0\leq k\leq n-1$, $x^k+1/x^k$ is an integer then $x^n+1/x^n$ is an integer. 
+Suppose for all k, $x^k+1/x^k$ is an integer.
+\begin{align*}
+(x+1/x)(x^{k-1}+1/x^{k-1})&=x^k+x^{2-k}+x^{k-2}+x^{-k}\\
+&=x^k+x^{-k}+x^{k-2}+x^{-(k-2)}\\
+&=x^k+1/x^k+x^{k-2}+1/x^{k-2}\\
+\rightarrow x^{k-2}+1/x^{k-2}&=(x+1/x)(x^{k-1}+1/x^{k-1})-(x^k+1/x^k)
+\end{align*}
+We know that $x+1/x$,$x^{k}+1/x^{k}$  and $x^{k-1}+1/x^{k-1}$ are integers and they imply that $x^{k-2}+1/x^{k-2}$ is an integer thus $x^n+1/x^n$ is an integer.
+\end{enumerate}
+\end{proof}
+
+\end{document} 

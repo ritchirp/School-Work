@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{-1}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Lemma 41}
+\date{\today}
+
+\maketitle
+Let U and V be finite dimensional vector spaces (over the same field F) and let $T : U \rightarrow V$ be a linear transformation. If $B = \{u_{1}, . . . , u_{k}\}$ is a basis for U, then for all $u \in U$, there exists unique $a_{1}, . . . , a_{k} \in F$ such that $T(u) = a_{1}T(u_{1}) + ... + a_{k}T(u_{k})$.
+
+\begin{proof} 
+Suppose $B = \{u_{1}, . . . , u_{k}\}$ is a basis for U.
+Let $x \in U$ then there exist scalars $\alpha_{1},...,\alpha_{k},\beta_{1},...,\beta_{k} \in F$ such that $x=\alpha_{1}u_{1}+...+\alpha_{k}u_{k}=\beta_{1}u_{1}+...+\beta_{k}u_{k}$.
+$\rightarrow (\alpha_{1}-\beta_{1})u_{1}+...+(\alpha_{k}-\beta_{k})u_{k}=0$ Since the basis is independant, the only linear combination of its vectors that makes zero is the one where all of the scalars are zero so $\alpha_{1}-\beta_{1}=...=\alpha_{k}-\beta_{k}=0 \rightarrow \alpha_{1}=\beta_{1},...,\alpha_{k}=\beta_{k}$ \\ 
+Since  $B = \{u_{1}, . . . , u_{k}\}$ is a basis for U, $\forall u \in U, \exists !\alpha_{1},...,\alpha_{k}\in F$ such that $u=\alpha_{1}u_{1}+...+\alpha_{k}u_{k}$.
+\begin{align*}
+T(u)&=T(\alpha_{1}u_{1}+...+\alpha_{k}u_{k}) \\
+&=\alpha_{1}T(u_{1})+..+\alpha_{k}T(u_{k})
+\end{align*}
+
+\end{proof}
+
+\end{document} 

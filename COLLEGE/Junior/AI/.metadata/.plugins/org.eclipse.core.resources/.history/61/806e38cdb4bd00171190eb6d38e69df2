@@ -1,0 +1,12 @@
+import java.util.List;
+
+public class Node {
+	List domain; 
+	int value;
+	
+	public Node(List dom, int val){
+		domain = dom;
+		value = val;
+	}
+	
+}

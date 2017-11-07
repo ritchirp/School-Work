@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{29}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Statement 30}
+\date{\today}
+
+\maketitle
+
+\begin{statement}
+Let $a$, $b$, and $c$ be integers. If $a$ divides $bc$, and $gcd(a,b)=1$ then $a$ divides $c$.
+\end{statement}
+
+\begin{proof}
+Suppose that $a$ divides $bc$ and that $gcd(a,b)=1$, there exists an integer $k$ such that $bc=ak$ and according to theorem 18 there exist integers $m$ and $n$ such that $gcd(a,b)=am+bn$.
+\begin{align*}
+am+bn&=1\\
+ak(am+bn)&=ak\\
+(ak)am+akbn&=ak\\
+bcam+akbn&=bc\\
+cam+akn&=c\\
+a(cm+kn)&=c
+\end{align*}
+$cm+kn$ is an integer, thus $a$ divides $c$.
+\end{proof}
+
+\end{document} 

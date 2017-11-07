@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package project1;
+
+import java.util.GregorianCalendar;
+
+/**
+ * @author Robbie
+ *
+ */
+public class Daily extends Appointment {
+	
+	public final AppointmentType TYPE = AppointmentType.DAILY;
+
+	public Daily(String desc){
+		super();
+		this.setDescription(desc);
+	}
+	
+	@Override
+	public boolean occursOn(int year, int month, int day) {
+		GregorianCalendar when = new GregorianCalendar(year, month, day);
+		return (this.getDate().after(when) || this.getDate().equals(when));
+	}
+
+}

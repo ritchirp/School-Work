@@ -1,0 +1,29 @@
+﻿  Surface.cpp
+  Sphere.cpp
+  RayTracer.cpp
+  Quadric.cpp
+  Plane.cpp
+  Lights.cpp
+  Lab.cpp
+  FrameBuffer.cpp
+  Disk.cpp
+  CylinderY.cpp
+  BasicIncludesAndDefines.cpp
+  Generating Code...
+FrameBuffer.obj : error LNK2019: unresolved external symbol __imp_glutSwapBuffers referenced in function "public: void __cdecl FrameBuffer::showColorBuffer(void)" (?showColorBuffer@FrameBuffer@@QEAAXXZ)
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutInitWindowSize referenced in function main
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutInitDisplayMode referenced in function main
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutMainLoop referenced in function main
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutPostRedisplay referenced in function "void __cdecl KeyboardCB(unsigned char,int,int)" (?KeyboardCB@@YAXEHH@Z)
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutKeyboardFunc referenced in function main
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutSpecialFunc referenced in function main
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutReshapeFunc referenced in function main
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutDisplayFunc referenced in function main
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutGet referenced in function "void __cdecl RenderSceneCB(void)" (?RenderSceneCB@@YAXXZ)
+Lab.obj : error LNK2019: unresolved external symbol __imp___glutInitWithExit referenced in function glutInit_ATEXIT_HACK
+Lab.obj : error LNK2019: unresolved external symbol __imp___glutCreateWindowWithExit referenced in function glutCreateWindow_ATEXIT_HACK
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutLeaveMainLoop referenced in function "void __cdecl KeyboardCB(unsigned char,int,int)" (?KeyboardCB@@YAXEHH@Z)
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutFullScreenToggle referenced in function "void __cdecl KeyboardCB(unsigned char,int,int)" (?KeyboardCB@@YAXEHH@Z)
+Lab.obj : error LNK2019: unresolved external symbol __imp_glutSetOption referenced in function main
+C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\Lib\um\x64\freeglut.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+C:\Users\Robbie\Dropbox\COLLEGE\Junior\Graphics\Lab4\x64\Debug\CSE287Lab.exe : fatal error LNK1120: 15 unresolved externals

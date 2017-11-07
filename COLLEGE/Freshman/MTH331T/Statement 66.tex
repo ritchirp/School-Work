@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{fullpage}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{procedure}[theorem]{Procedure}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{notation}[theorem]{Notation}
+
+\newtheorem{statement}{Statement}%[section]
+\newtheorem{problem}[statement]{Problem}
+\newtheorem{question}[statement]{Question}
+
+\newtheorem{case}{Case}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+
+\newcommand{\pow}[1]{\mathscr{P}(#1)}
+
+\renewcommand{\labelenumi}{\emph{(\roman{enumi})}}
+\setcounter{statement}{66}
+
+
+\begin{document}
+
+\author{Robert Ritchie}
+\title{MTH 331 -- Statement 67}
+\date{\today}
+
+\maketitle
+
+\begin{statement}
+$\{n\in\mathbb{Z}:15\mid n\} \cap \{ n\in\mathbb{Z}:2\mid n \}  \subseteq \{ n\in\mathbb{Z}:10\mid n \}$
+\end{statement}
+
+\begin{proof}
+Let $n\in\mathbb{Z}$.
+Suppose $15\mid n$ and $2\mid n$.
+$\exists x \in \mathbb{Z}$ such that $n=15x$
+\begin{align*}
+n&=15x\\
+\Leftrightarrow n&=5(3x)\\
+\Rightarrow 5 &
+\mid n
+\end{align*}
+$5 \mid n \wedge 2 \mid n \Rightarrow 10 \mid n$ (by statement 28)
+\end{proof}
+
+\end{document} 

@@ -1,0 +1,44 @@
+package project1;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+public class AppointmentBook {
+	ArrayList<Appointment> appointments;
+	
+	public AppointmentBook(){
+	}
+	
+	public void add(AppointmentType type, String desc, GregorianCalendar date){
+		if(type==AppointmentType.DAILY)	
+			this.appointments.add(new Daily(desc));
+		if(type==AppointmentType.MONTHLY)
+			this.appointments.add(new Monthly(date.get(Calendar.DAY_OF_MONTH), desc));
+		if(type==AppointmentType.ONETIME){
+			int year = date.get(Calendar.YEAR);
+			int month = date.get(Calendar.MONTH);
+			int day = date.get(Calendar.DAY_OF_MONTH);
+			this.appointments.add(new Onetime(year, month, day, desc));
+		}
+			
+	}
+	
+	public static void save(File file, Appointment appointment) throws FileNotFoundException{
+		PrintWriter PW = new PrintWriter(file);
+		if(appointment.getType()==AppointmentType.DAILY)
+			PW.print("DAILY");
+		if(appointment.getType()==AppointmentType.MONTHLY)
+			PW.print("MONTHLY");
+		if(appointment.getType()==AppointmentType.ONETIME)
+			PW.print("ONETIME");
+		PW.printf(".%s.%2d/%2d/%4d%n", appointment.getDescription(), appointment.getDate().get(Calendar.DAY_OF_MONTH),
+				appointment.getDate().get(Calendar.MONTH), appointment.getDate().get(Calendar.YEAR));
+		
+		PW.close();
+	}
+	
+}

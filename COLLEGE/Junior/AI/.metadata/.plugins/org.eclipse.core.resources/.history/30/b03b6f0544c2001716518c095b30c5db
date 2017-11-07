@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Solver {
+
+    public static boolean solve(Board b) {
+
+        ArrayList<Square> unassignedSquares = b.getUnassignedSquares();
+        Collections.sort(unassignedSquares);
+        if (b.isComplete()) {
+            return true;
+        }
+        System.out.println(b);
+
+        // Iterate through every open square
+        for (Square square : unassignedSquares) {
+
+            // Get the domain of the square
+            ArrayList<Integer> domain = square.domain;
+
+            // Iterate through every value in the domain
+            for (int i : domain) {
+
+                // Assign the square a value
+                square.assign(i);
+
+                // Delete this value from the domain of all squares that share a row,
+                // column, or section with this square
+                ArrayList<Square> affectedSquares = b.deleteFromDomains(square, i);
+
+                // If any of the squares have empty domains, restore all of the squares
+                // where the value was deleted and move on to the next domain value
+                //if (b.hasEmptyDomains()) b.restoreDomains(affectedSquares, i);
+
+                // If no squares have empty domains
+                else {
+
+                    // Check to make sure that there are no squares with that value already assigned
+                    if (rowValid(b, square.row) && colValid(b, square.col)
+                            && subsectionValid(b, b.getSubsection(square.row, square.col))) {
+
+                        // Recursive call
+                        if (solve(b)) return true;
+
+                        // If no solution is found, restore the domains of affected squares
+                        else b.restoreDomains(affectedSquares, i);
+                    }
+                }
+            }
+            // Set the domain of the selected square to its original value
+            square.domain = domain;
+        }
+
+        return false;
+    }
+
+    public static boolean rowValid(Board b, int rowNum) {
+        Square[] row = b.getRow(rowNum);
+        for (Square square1 : row) {
+            for (Square square2 : row) {
+                if (square1.equals(square2)) continue;
+                if (square1.domain.size()==1 && square2.domain.size()==1) {
+                    if (square1.domain.get(0).equals(square2.domain.get(0))) return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean colValid(Board b, int colNum) {
+        Square[] col = b.getColumn(colNum);
+        for (Square square1 : col) {
+            for (Square square2 : col) {
+                if (square1.equals(square2)) continue;
+                if (square1.domain.size()==1 && square2.domain.size()==1) {
+                    if (square1.domain.get(0).equals(square2.domain.get(0))) return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean subsectionValid(Board b, ArrayList<Square> subsection) {
+        for (Square square1 : subsection) {
+            for (Square square2 : subsection) {
+                if (square1.equals(square2)) continue;
+                if (square1.domain.size()==1 && square2.domain.size()==1) {
+                    if (square1.domain.get(0).equals(square2.domain.get(0))) return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Board b = new Board("test1.txt");
+        System.out.println(solve(b));
+    }
+
+}

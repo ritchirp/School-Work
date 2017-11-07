@@ -1,0 +1,18 @@
+// Robert Ritchie
+// CSE 174
+// takes a word and converts it to pig latin
+
+import java.util.Scanner;
+
+public class PigLatin{
+   public static void main(String[] args){
+      // gets the word
+      Scanner keyboard = new Scanner(System.in);
+      System.out.print("Enter a word: ");
+      String word = keyboard.next();
+      
+      // obtains the position of the first vowel
+      int vowelPosition;
+      
+   }
+}
